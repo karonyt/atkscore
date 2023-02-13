@@ -1,1 +1,13 @@
-const _0xbc6ab0=_0x39ce;function _0x57ce(){const _0x468355=['runCommandAsync','831BtYtTm','3687345jITdxC','atk','nameTag','2914440KViqCC','38548OwzFVs','damagingEntity','subscribe','effect\x20@s\x20instant_health\x200','26EJTfAw','2855240LMbbFh','304125PLGXDV','950761VYdIrs','\x20entity_attack\x20entity\x20@e[c=1,name=\x22','hurtEntity','30LndLVo','\x22,type=','7496hLzVoW'];_0x57ce=function(){return _0x468355;};return _0x57ce();}(function(_0xd52b04,_0x4d5977){const _0x3e389a=_0x39ce,_0x2eabb2=_0xd52b04();while(!![]){try{const _0x565a7b=-parseInt(_0x3e389a(0x86))/0x1*(parseInt(_0x3e389a(0x95))/0x2)+-parseInt(_0x3e389a(0x90))/0x3*(-parseInt(_0x3e389a(0x8e))/0x4)+-parseInt(_0x3e389a(0x88))/0x5+-parseInt(_0x3e389a(0x8c))/0x6*(-parseInt(_0x3e389a(0x89))/0x7)+-parseInt(_0x3e389a(0x87))/0x8+parseInt(_0x3e389a(0x91))/0x9+-parseInt(_0x3e389a(0x94))/0xa;if(_0x565a7b===_0x4d5977)break;else _0x2eabb2['push'](_0x2eabb2['shift']());}catch(_0xa75fe3){_0x2eabb2['push'](_0x2eabb2['shift']());}}}(_0x57ce,0x61134));import{world}from'@minecraft/server';import{getScore}from'getscore.js';function _0x39ce(_0x24aaa1,_0x526414){const _0x57ce06=_0x57ce();return _0x39ce=function(_0x39ce34,_0x57ddaa){_0x39ce34=_0x39ce34-0x84;let _0x146ab5=_0x57ce06[_0x39ce34];return _0x146ab5;},_0x39ce(_0x24aaa1,_0x526414);}world['events']['entityHurt'][_0xbc6ab0(0x84)](_0x3a1730=>{const _0x39c28a=_0xbc6ab0;let _0x355a72=0x1;_0x355a72=getScore(_0x3a1730[_0x39c28a(0x96)],_0x39c28a(0x92)),_0x355a72=(_0x355a72-0x1)*0x2;const _0x375d87=_0x3a1730[_0x39c28a(0x8b)],_0x3fb082=_0x3a1730[_0x39c28a(0x96)];_0x375d87[_0x39c28a(0x8f)](_0x39c28a(0x85)),_0x375d87[_0x39c28a(0x8f)]('effect\x20@s\x20instant_damage\x200'),_0x375d87['runCommandAsync']('damage\x20@s\x20'+_0x355a72+_0x39c28a(0x8a)+_0x3fb082[_0x39c28a(0x93)]+_0x39c28a(0x8d)+_0x3fb082['typeId']+']');});
+import { world } from "@minecraft/server";
+import { getScore } from "getscore.js";
+
+world.events.entityHurt.subscribe(ev => {
+  let d = 1
+  d = getScore(ev.damagingEntity, "atk" )
+  d = ( d - 1 ) * 2
+  const def = ev.hurtEntity
+  const atk = ev.damagingEntity
+  def.runCommandAsync(`effect @s instant_health 0`)
+  def.runCommandAsync(`effect @s instant_damage 0`)
+  def.runCommandAsync(`damage @s ${d} entity_attack entity @e[c=1,name="${atk.nameTag}",type=${atk.typeId}]`)
+})
