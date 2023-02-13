@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "攻撃力変更アドオン",
+        "name": "ATK Score",
+        "uuid": "c7b98d98-8be1-068e-7dcf-bc6e8c418ec2",
+        "version": [ 0, 0, 1 ],
+        "min_engine_version": [ 1, 19, 40 ]
+    },
+    "modules": [
+        {
+            "description": "",
+            "type": "script",
+            "entry": "scripts/main.js",
+            "uuid": "dfe3cfd8-ecf6-4378-b5ea-287409e28c59",
+            "version": [0, 0, 1]
+        }
+    ],
+    "dependencies": [
+        {
+          "module_name": "@minecraft/server",
+          "version": "1.1.0-beta"
+        },
+        {
+          "module_name": "@minecraft/server-ui",
+          "version": "1.0.0-beta"
+        }
+    ]
+}
